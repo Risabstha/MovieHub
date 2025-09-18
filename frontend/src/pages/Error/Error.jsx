@@ -5,7 +5,7 @@ const Error = () => {
   return (
     <div>
       <h1>Couldn't Load Page</h1>
-      <HomeButton/>
+      <HomeButton value="Go to Home"/>
     </div>
   )
 }

@@ -6,6 +6,7 @@ const SearchBar = ({handleSearchMovie, handleSubmit, searchedMovie}) => {
 
   return (
     <div>
+      {/* search bar for faviourite and searched movies */}
       <form onSubmit={handleSubmit} className="flex justify-center ">
         <div className="flex items-center 
         lg:w-[40rem]  

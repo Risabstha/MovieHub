@@ -12,6 +12,8 @@ const NavBar = () => {
 
   return (
     <nav className="sticky top-0 bg-gray-200 md:z-50 z-200">
+
+      {/* desktop nav view */}
       <div
         className="hidden md:flex md:justify-between md:items-center 
       lg:h-20  

@@ -4,16 +4,20 @@ import MovieCard from "../../components/movieCard/MovieCard";
 import { searchMovies } from "../../api/api";
 import { getPopularMovies } from "../../api/api";
 import SearchBar from "../../components/Search/SearchBar";
+import SearchSuggestion from "../../components/SearchSuggestion/SearchSuggestion";
+import HomeButton from "../../components/HomeButton/HomeButton";
 
 const Home = () => {
-  const [movies, setMovies] = useState([]);   // stores movies (both searched movie and popular movies)
-  const [isFound, setFound] = useState(true);   // searched/ popular movies found?
-  const [error, setError] = useState(null);    // if any error occurs they are stored here 
-  const [loading, setLoading] = useState(true);   // true during promise pending state
+  const [movies, setMovies] = useState([]); // stores movies (both searched movie and popular movies)
+  const [isFound, setFound] = useState(true); // searched/ popular movies found?
+  const [error, setError] = useState(null); // if any error occurs they are stored here
+  const [loading, setLoading] = useState(true); // true during promise pending state
 
-  const [searchedMovie, setSearch] = useState("");   // movie search bar values stored
-  const [prevSearch, setPrevSearch] = useState("");   //
-  const [prevSearchShow, setPrevSearchShow] = useState(false);
+  const [searchedMovie, setSearch] = useState(""); // movie search bar values stored
+  const [prevSearch, setPrevSearch] = useState(""); // stores the searched value for search query indicator or search feedback message.
+  const [prevSearchShow, setPrevSearchShow] = useState(false); // flag for showing prevSearch
+
+  // handles value changes on input field
   const handleSearchMovie = (e) => {
     const { value } = e.target;
     setSearch(value);
@@ -43,6 +47,7 @@ const Home = () => {
     }
   };
 
+  // gets the popular movies
   useEffect(() => {
     const loadPopularMovie = async () => {
       try {
@@ -68,25 +73,27 @@ const Home = () => {
         />
       </div>
 
-      {prevSearchShow && (
-        <div>
-          <p> showing results for : {prevSearch}</p>
-        </div>
-      )}
+      {/* if searched movies are found the display them otherwise display Loading (during promise pending) */}
       {isFound ? (
-        <div className="lg:mt-10 md:mt-6 mt-5 flex justify-center">
+        <div className="lg:mt-6 md:mt-6 mt-5 flex justify-center">
           {loading ? (
             <div> Loading . . . </div>
           ) : (
-            <div className="grid xl:grid-cols-6 lg:grid-cols-4  sm:grid-cols-3 grid-cols-2 xl:gap-6 lg:gap-5 sm:gap-4 gap-3">
-              {movies.map((film) => (
-                <MovieCard
-                  key={film.id}
-                  title={film.title}
-                  release_date={film.release_date}
-                  poster={film.poster_path}
-                />
-              ))}
+            <div>
+
+              {/* if the search is sucessfull show this search feedback */}
+              {prevSearchShow && <SearchSuggestion prevSearch={prevSearch} />}
+
+              <div className="grid xl:grid-cols-6 lg:grid-cols-4  sm:grid-cols-3 grid-cols-2 xl:gap-6 lg:gap-5 sm:gap-4 gap-3">
+                {movies.map((film) => (
+                  <MovieCard
+                    key={film.id}
+                    title={film.title}
+                    release_date={film.release_date}
+                    poster={film.poster_path}
+                  />
+                ))}
+              </div>
             </div>
           )}
         </div>
