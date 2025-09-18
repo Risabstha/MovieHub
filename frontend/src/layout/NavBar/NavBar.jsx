@@ -11,10 +11,10 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="sticky top-0 bg-gray-200 z-50">
+    <nav className="sticky top-0 bg-gray-200 md:z-50 z-200">
       <div
         className="hidden md:flex md:justify-between md:items-center 
-      lg:min-h-15 lg:h-20  
+      lg:h-20  
       md:h-15"
       >
         <div className="flex gap-x-2 ml-10 text-lg">
@@ -22,10 +22,6 @@ const NavBar = () => {
           <Link to={"/"} className="hover:text-blue-200 font-semibold">
             MoviesHub
           </Link>
-        </div>
-
-        <div>
-          <SearchBar />
         </div>
 
         <ul

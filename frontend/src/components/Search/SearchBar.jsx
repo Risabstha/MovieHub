@@ -1,24 +1,16 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-const SearchBar = () => {
-  const [searchedMovie, setSearch] = useState("");
-  
-  const handleSearchMovie = (e) => {
-    const { value } = e.target;
-    setSearch(value);
-  };
+const SearchBar = ({handleSearchMovie, handleSubmit, searchedMovie}) => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(searchedMovie);
-    setSearch("");
-  };
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="flex justify-center  ">
-        <div className="flex items-center lg:w-[40rem]  md:min-w-[20rem]   max-w-lg border border-gray-500 rounded-full overflow-hidden">
+      <form onSubmit={handleSubmit} className="flex justify-center ">
+        <div className="flex items-center 
+        lg:w-[40rem]  
+        md:min-w-[20rem]  
+        bg-gray-200 border-2 border-gray-400 max-w-lg rounded-full overflow-hidden">
           {/* Input */}
           <input
             type="text"
@@ -33,7 +25,7 @@ const SearchBar = () => {
           {/* Search Button */}
           <button
             type="submit"
-            className="flex items-center justify-center w-12 h-10 bg-gray-100 border-l border-gray-500 hover:bg-gray-200 transition-colors"
+            className="flex items-center justify-center w-12 h-10 bg-gray-300 hover:bg-gray-400 transition-colors"
           >
             <FaSearch className="text-gray-600" />
           </button>
