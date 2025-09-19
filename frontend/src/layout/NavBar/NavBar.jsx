@@ -19,9 +19,9 @@ const NavBar = () => {
       lg:h-20  
       md:h-15"
       >
-        <div className="flex gap-x-2 ml-10 text-lg">
+        <div className="flex gap-x-2 ml-10 text-lg" onClick={() => window.location.reload()}>
           <img src="./logo.png" width={30} height={30}></img>
-          <Link to={"/"} className="hover:text-blue-200 font-semibold">
+          <Link to={"/"} className="hover:text-blue-900 font-semibold">
             MoviesHub
           </Link>
         </div>
@@ -33,7 +33,7 @@ const NavBar = () => {
         text-lg font-sans "
         >
           <li
-            className={`hover:text-blue-400  font-semibold ${
+            className={`hover:text-blue-700  font-semibold ${
               location.pathname === "/" && "border-b-1 border-green-300"
             }`}
           >
@@ -42,7 +42,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li
-            className={`hover:text-blue-400  font-semibold ${
+            className={`hover:text-blue-700  font-semibold ${
               location.pathname.includes("/favorite") &&
               "border-b-1 border-green-300"
             }`}

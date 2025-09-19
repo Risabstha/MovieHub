@@ -5,12 +5,12 @@ const SearchBar = ({handleSearchMovie, handleSubmit, searchedMovie}) => {
 
 
   return (
-    <div>
+    <span className="md:fixed sticky md:top-2 lg:top-5 md:left-50  top-14 z-100 ">
       {/* search bar for faviourite and searched movies */}
       <form onSubmit={handleSubmit} className="flex justify-center ">
-        <div className="flex items-center 
+        <span className="flex items-center 
         lg:w-[40rem]  
-        md:min-w-[20rem]  
+        md:min-w-[22rem]  
         bg-gray-200 border-2 border-gray-400 max-w-lg rounded-full overflow-hidden">
           {/* Input */}
           <input
@@ -30,9 +30,9 @@ const SearchBar = ({handleSearchMovie, handleSubmit, searchedMovie}) => {
           >
             <FaSearch className="text-gray-600" />
           </button>
-        </div>
+        </span>
       </form>
-    </div>
+    </span>
   );
 };
 

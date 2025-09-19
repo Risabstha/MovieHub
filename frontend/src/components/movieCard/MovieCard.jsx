@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FaHeart } from "react-icons/fa";
+import { FavmovieContext } from "../../stores/FavContext";
 
-const MovieCard = (movieProp) => {
-  function handleFaviouriteMovie() {}
+const MovieCard = ({movieProp}) => {
+
+  const FavouriteMovie = useContext(FavmovieContext);
+  const {  AddFavourite, RemoveFavorite, checkFavourite } = FavouriteMovie;
+
+  const checkFav = checkFavourite(movieProp.id);
+
+  const handleFaviouriteMovie = (e) =>
+  {
+    e.preventDefault();
+    {checkFav? RemoveFavorite(movieProp.id) : AddFavourite(movieProp) }
+  }
+
+
   return (
     <div>
       <div
@@ -9,20 +23,24 @@ const MovieCard = (movieProp) => {
         // First row = 1fr (takes up all remaining space).
         // Second row = auto (just enough space for its content).
         //  16:9 ratio
-        className="grid grid-rows-[1fr_auto] 
+        className=" group grid grid-rows-[1fr_auto] 
         h-[320px]  w-[180px]
         relative"
       >
         {/* Poster */}
         <div className=" relative ">
-          <div
-            className="absolute right-6 top-3 cursor-pointer "
+          <button
+            type="button"
+            className={`absolute  right-3 top-3 cursor-pointer bg-gray-900  p-1 rounded-full hover:bg-gray-300 hover:text-black
+            opacity-0 group-hover:opacity-100 transition-opacity duration-300
+            ${checkFav ? "text-red-400" : "text-white "}`}
             onClick={(e) => handleFaviouriteMovie(e)}
           >
-            ♥
-          </div>
+            <FaHeart />
+          </button>
+
           <img
-            src={`https://image.tmdb.org/t/p/w500${movieProp.poster}`}
+            src={`https://image.tmdb.org/t/p/w500${movieProp.poster_path}`}
             alt={movieProp.title}
             className="w-full h-full object-cover"
           />
@@ -31,7 +49,10 @@ const MovieCard = (movieProp) => {
         {/* Movie Info */}
         <div className="flex flex-col justify-center px-2 py-1 ">
           <p className=" text-[14px] font-semibold ">{movieProp.title}</p>
-          <p className="text-[13px] text-gray-500">{movieProp.release_date?.split("-")[0]}</p>  {/* release date lai - bata split garxa */}
+          <p className="text-[13px] text-gray-500">
+            {movieProp.release_date?.split("-")[0]}
+          </p>{" "}
+          {/* release date lai - bata split garxa */}
         </div>
       </div>
     </div>

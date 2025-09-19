@@ -43,7 +43,7 @@ const Home = () => {
       setError("Failed to search Movie");
     } finally {
       setLoading(false);
-      setSearch("");
+      setSearch("");      // set search yaha empty garinxa tesaile prevSearch use gareko search feedback ko lagi
     }
   };
 
@@ -65,13 +65,13 @@ const Home = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="sticky md:top-2 lg:top-5 top-14 z-100 mt-3">
+      
         <SearchBar
           handleSearchMovie={handleSearchMovie}
           handleSubmit={handleSubmit}
           searchedMovie={searchedMovie}
         />
-      </div>
+
 
       {/* if searched movies are found the display them otherwise display Loading (during promise pending) */}
       {isFound ? (
@@ -88,9 +88,7 @@ const Home = () => {
                 {movies.map((film) => (
                   <MovieCard
                     key={film.id}
-                    title={film.title}
-                    release_date={film.release_date}
-                    poster={film.poster_path}
+                    movieProp={film}
                   />
                 ))}
               </div>
@@ -105,6 +103,8 @@ const Home = () => {
       )}
 
       {error && `${error}`}
+
+
     </div>
   );
 };

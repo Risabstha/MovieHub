@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import BrowserRouter from './routes/BrowserRouter'
+import BrowserRouter from "./routes/BrowserRouter";
+import FavContext from "./stores/FavContext";
 
 const App = () => {
-
   return (
-    <div>
-<BrowserRouter/>
-    </div>
-  )
-}
+    <FavContext>
+      <BrowserRouter />
+    </FavContext>
+  );
+};
 
-export default App
+export default App;
