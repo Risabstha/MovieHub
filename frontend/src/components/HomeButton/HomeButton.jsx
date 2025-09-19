@@ -10,6 +10,7 @@ const HomeButton = ({ value="Go to Home"}) => {
         
         className="px-3 py-1.5 bg-gray-500 hover:bg-gray-600 text-gray-300 "
       >
+        {value}
       </Link>
       
     </div>

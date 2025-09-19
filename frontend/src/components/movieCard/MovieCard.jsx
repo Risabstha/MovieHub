@@ -31,7 +31,7 @@ const MovieCard = ({movieProp}) => {
         <div className=" relative ">
           <button
             type="button"
-            className={`absolute  right-3 top-3 cursor-pointer bg-gray-900  p-1 rounded-full hover:bg-gray-300 hover:text-black
+            className={`absolute  right-3 top-3 cursor-pointer bg-gray-900  p-1 rounded-full
             opacity-0 group-hover:opacity-100 transition-opacity duration-300
             ${checkFav ? "text-red-400" : "text-white "}`}
             onClick={(e) => handleFaviouriteMovie(e)}
