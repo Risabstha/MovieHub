@@ -5,14 +5,13 @@ import { FavmovieContext } from "../../stores/FavContext";
 const MovieCard = ({movieProp}) => {
 
   const FavouriteMovie = useContext(FavmovieContext);
-  const {  AddFavourite, RemoveFavorite, checkFavourite } = FavouriteMovie;
+  const {  AddFavourite, RemoveFavorite, checkFavourite } = FavouriteMovie; // FavMovieContext ko value lai destructure gareko
 
-  const checkFav = checkFavourite(movieProp.id);
+  const checkFav = checkFavourite(movieProp.id);  // favourite movie ho vane true return garxa
 
   const handleFaviouriteMovie = (e) =>
   {
-    e.preventDefault();
-    {checkFav? RemoveFavorite(movieProp.id) : AddFavourite(movieProp) }
+    {checkFav? RemoveFavorite(movieProp.id) : AddFavourite(movieProp) } // true: removefavourite, false : addfavourite
   }
 
 

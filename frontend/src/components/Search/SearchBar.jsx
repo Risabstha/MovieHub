@@ -5,7 +5,8 @@ const SearchBar = ({handleSearchMovie, handleSubmit, searchedMovie}) => {
 
 
   return (
-    <span className="md:fixed sticky md:top-2 lg:top-5 md:left-50  top-14 z-100 ">
+    // desktop ko lagi fixed search bar, mobile ko lagi sticky with top-14 , z index 100
+    <span className="md:fixed md:top-2 lg:top-5 md:left-50 sticky top-14 z-100 ">
       {/* search bar for faviourite and searched movies */}
       <form onSubmit={handleSubmit} className="flex justify-center ">
         <span className="flex items-center 

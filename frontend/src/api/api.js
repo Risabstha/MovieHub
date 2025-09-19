@@ -7,6 +7,7 @@ export const getPopularMovies = async () => {
   return data.results;
 };
 
+// query(search gareko movie ko name ) pass garne
 export const searchMovies = async (query) => {
   const response = await fetch(
     `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(

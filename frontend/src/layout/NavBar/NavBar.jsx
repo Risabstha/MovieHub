@@ -1,40 +1,44 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
-import SearchBar from "../../components/Search/SearchBar";
 
 const NavBar = () => {
   const location = useLocation();
-  const [threeDot, setThreeDot] = useState(false);
+
+  const [threeDot, setThreeDot] = useState(false); // flag : if threeDot is clicked: true, else false.
   const handleThreeDot = () => {
     threeDot ? setThreeDot(false) : setThreeDot(true);
   };
 
   return (
     <nav className="sticky top-0 bg-gray-200 md:z-50 z-200">
-
-      {/* desktop nav view */}
+      {/* desktop nav view ,   this will be hidden when screen size < md (768px) */}
       <div
         className="hidden md:flex md:justify-between md:items-center 
-      lg:h-20  
-      md:h-15"
+        lg:h-20  
+        md:h-15"
       >
-        <div className="flex gap-x-2 ml-10 text-lg" onClick={() => window.location.reload()}>
+        {/* Logo and web app name , when clicked reloads the page.*/}
+        <div
+          className="flex gap-x-2 ml-10 text-lg"
+          onClick={() => window.location.reload()}
+        >
           <img src="./logo.png" width={30} height={30}></img>
           <Link to={"/"} className="hover:text-blue-900 font-semibold">
             MoviesHub
           </Link>
         </div>
 
+        {/* nav options */}
         <ul
           className="flex 
-        xl:mr-20    lg:mr-10     md:mr-5 
-        lg:gap-x-10    md:gap-x-5      
-        text-lg font-sans "
+          xl:mr-20    lg:mr-10     md:mr-5 
+          lg:gap-x-10    md:gap-x-5      
+          text-lg font-sans "
         >
           <li
             className={`hover:text-blue-700  font-semibold ${
-              location.pathname === "/" && "border-b-1 border-green-300"
+              location.pathname === "/" && "border-b-1 border-green-700"
             }`}
           >
             <Link to="/" className="flex h-full px-3 py-1  w-full ">
@@ -44,7 +48,7 @@ const NavBar = () => {
           <li
             className={`hover:text-blue-700  font-semibold ${
               location.pathname.includes("/favorite") &&
-              "border-b-1 border-green-300"
+              "border-b-1 border-green-700"
             }`}
           >
             <Link to="/favorite" className="flex h-full px-3 py-1  w-full ">
@@ -54,7 +58,7 @@ const NavBar = () => {
         </ul>
       </div>
 
-      {/* mobile view */}
+      {/* mobile view , this will be hidden when screen size(width) > md*/}
       <div className="md:hidden flex justify-between items-center p-2 border-b-1 border-gray-600 h-12">
         <div className="flex gap-x-2 ml-2 text-lg">
           <img src="./logo.png" width={30} height={30}></img>

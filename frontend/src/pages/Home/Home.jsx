@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import MovieCard from "../../components/movieCard/MovieCard";
-// import { FaSearch } from "react-icons/fa";
 import { searchMovies } from "../../api/api";
 import { getPopularMovies } from "../../api/api";
 import SearchBar from "../../components/Search/SearchBar";
 import SearchSuggestion from "../../components/SearchSuggestion/SearchSuggestion";
-import HomeButton from "../../components/HomeButton/HomeButton";
 
 const Home = () => {
   const [movies, setMovies] = useState([]); // stores movies (both searched movie and popular movies)
@@ -30,11 +28,11 @@ const Home = () => {
     if (loading) return;
     setLoading(true);
     try {
-      const res = await searchMovies(searchedMovie);
-      setMovies(res);
-      if (res && res.length > 0) {
+      const res = await searchMovies(searchedMovie);  // searchMovies : searched gareko movies fetch garna 
+      setMovies(res); // array ho yo.
+      if (res && res.length > 0) {    // yedi array(res) empty xaina vane 
         setFound(true); // movies found then true
-        setPrevSearchShow(true);
+        setPrevSearchShow(true);  // search suggestion ko lagi
       } else {
         setFound(false);
       }
@@ -75,12 +73,12 @@ const Home = () => {
 
       {/* if searched movies are found the display them otherwise display Loading (during promise pending) */}
       {isFound ? (
-        <div className="lg:mt-6 md:mt-6 mt-5 flex justify-center">
+        // flex justify-center : movies card centered
+        <div className="lg:mt-6 md:mt-6 mt-5 flex justify-center">  
           {loading ? (
             <div> Loading . . . </div>
           ) : (
             <div>
-
               {/* if the search is sucessfull show this search feedback */}
               {prevSearchShow && <SearchSuggestion prevSearch={prevSearch} />}
 

@@ -7,6 +7,7 @@ import Error from '../pages/Error/Error';
 
 const BrowserRouter = () => {
 
+  // creating browser router
   const router = createBrowserRouter([
     {
       path : "/",
