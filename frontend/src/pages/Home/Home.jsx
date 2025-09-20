@@ -4,6 +4,7 @@ import { searchMovies } from "../../api/api";
 import { getPopularMovies } from "../../api/api";
 import SearchBar from "../../components/Search/SearchBar";
 import SearchSuggestion from "../../components/SearchSuggestion/SearchSuggestion";
+import SkeletonLoading from "../../components/SkeletonLoading/SkeletonLoading";
 
 const Home = () => {
   const [movies, setMovies] = useState([]); // stores movies (both searched movie and popular movies)
@@ -76,7 +77,7 @@ const Home = () => {
         // flex justify-center : movies card centered
         <div className="lg:mt-6 md:mt-6 mt-5 flex justify-center">  
           {loading ? (
-            <div> Loading . . . </div>
+            <SkeletonLoading/>
           ) : (
             <div>
               {/* if the search is sucessfull show this search feedback */}

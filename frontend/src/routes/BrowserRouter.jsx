@@ -4,7 +4,7 @@ import NavBar from '../layout/NavBar/NavBar';
 import MainHome from '../pages/Home/MainHome';
 import MainFavorite from '../pages/Faviourite/MainFavorite';
 import Error from '../pages/Error/Error';
-import SkeletonLoading from '../components/SkeletonLoading';
+import SkeletonLoading from '../components/SkeletonLoading/SkeletonLoading';
 
 const BrowserRouter = () => {
 

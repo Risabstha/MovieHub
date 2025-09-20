@@ -9,7 +9,8 @@ const App = () => {
  const { theme } = useTheme();    
 
   return (
-    <div className="App" data-theme={theme==="dark" ? "dark" : "light"}> {/* class for css */}
+    // index.css ma xa data-theme
+    <div className="App" data-theme={theme==="dark" && "dark" }> {/* class for css */}
       <FavContext>
         <BrowserRouter />
       </FavContext>
