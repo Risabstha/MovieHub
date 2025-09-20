@@ -4,8 +4,7 @@ import { FavmovieContext } from "../../stores/FavContext";
 import SearchBar from "../../components/Search/SearchBar";
 
 const Favorite = () => {
-  const { favourites, AddFavourite, RemoveFavorite, checkFavourite } =
-    useContext(FavmovieContext);
+  const { favourites} =  useContext(FavmovieContext);
 
     const [searchedMovie, setSearch] = useState('');
     const [movie, setMovie] = useState('');

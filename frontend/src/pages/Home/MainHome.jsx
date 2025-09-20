@@ -4,6 +4,7 @@ import Home from './Home'
 
 const MainHome = () => {
   return (
+
     <div>
         <NavBar/>
         <Home/>

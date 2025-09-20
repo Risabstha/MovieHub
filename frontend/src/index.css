@@ -1,7 +1,21 @@
 @import "tailwindcss";
 
 html, body, #root {
-  height: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* CSS custom properties (a.k.a. CSS variables) */
+/* :root is a special CSS selector that points to the root element of the document (the <html> tag). */
+:root{
+  /* creating css variables */
+  --background-color: #f2f2f2;
+}
+
+[data-theme = "dark"]{
+   --background-color: #2d2c2c;
+  --primary-text-color: #f2f2f2;
 }

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-
+// Favorite.jsx, MovieCard.jsx
 export const FavmovieContext = createContext();
 const FavContext = ({ children }) => {
 
@@ -21,7 +21,7 @@ const FavContext = ({ children }) => {
     localStorage.setItem("favourites", JSON.stringify(favourites)); // favourite array lai json ma convert garxa
   }, [favourites]); 
 
-  console.log(favourites);
+  // console.log(favourites);
 
   // favourites state ma value halne 
   const AddFavourite = (movie) => {

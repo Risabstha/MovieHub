@@ -4,6 +4,7 @@ import Favorite from './Favorite'
 
 const MainFavorite = () => {
   return (
+    // <div className='bg-white text-black dark:bg-[#211f1f] dark:text-[#e8e3e3]'>
     <div>
         <NavBar/>
         <Favorite/>

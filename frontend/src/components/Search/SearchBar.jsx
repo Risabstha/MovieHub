@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { useTheme } from "../../stores/ThemeProvider";
 
 const SearchBar = ({handleSearchMovie, handleSubmit, searchedMovie}) => {
 
-
+  const {theme} = useTheme();
   return (
     // desktop ko lagi fixed search bar, mobile ko lagi sticky with top-14 , z index 100
     <span className="md:fixed md:top-2 lg:top-5 md:left-50 sticky top-14 z-100 ">
       {/* search bar for faviourite and searched movies */}
       <form onSubmit={handleSubmit} className="flex justify-center ">
-        <span className="flex items-center 
+        <span className={`flex items-center 
         lg:w-[40rem]  
         md:min-w-[22rem]  
-        bg-gray-200 border-2 border-gray-400 max-w-lg rounded-full overflow-hidden">
+         border-2 border-gray-400 max-w-lg rounded-full overflow-hidden
+        ${theme === "dark" ?"bg-[#1b1b1b]" :"bg-[#dcdada]"}`}>
           {/* Input */}
           <input
             type="text"
@@ -27,7 +29,8 @@ const SearchBar = ({handleSearchMovie, handleSubmit, searchedMovie}) => {
           {/* Search Button */}
           <button
             type="submit"
-            className="flex items-center justify-center w-12 h-10 bg-gray-300 hover:bg-gray-400 transition-colors"
+            className={`flex items-center justify-center w-12 h-10  transition-colors
+              ${theme === "dark" ?"-[#101010] hover:bg-[#151515]" :"bg-[#a7a7a7] hover:bg-gray-400bg"}`} 
           >
             <FaSearch className="text-gray-600" />
           </button>
@@ -35,6 +38,6 @@ const SearchBar = ({handleSearchMovie, handleSubmit, searchedMovie}) => {
       </form>
     </span>
   );
-};
+}
 
 export default SearchBar;

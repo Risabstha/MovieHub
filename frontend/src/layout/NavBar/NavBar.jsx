@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
+import ThemeToggle from "../../components/ThemeToggle";
+import { useTheme } from "../../stores/ThemeProvider";
 
 const NavBar = () => {
   const location = useLocation();
+  const {theme} = useTheme() 
 
   const [threeDot, setThreeDot] = useState(false); // flag : if threeDot is clicked: true, else false.
   const handleThreeDot = () => {
@@ -11,7 +14,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="sticky top-0 bg-gray-200 md:z-50 z-200">
+    <nav className={`sticky top-0 md:z-50 z-200 ${theme === "dark" ?"bg-[#1b1b1b]" :"bg-[#dcdada]"}`}>
       {/* desktop nav view ,   this will be hidden when screen size < md (768px) */}
       <div
         className="hidden md:flex md:justify-between md:items-center 
@@ -29,33 +32,39 @@ const NavBar = () => {
           </Link>
         </div>
 
-        {/* nav options */}
-        <ul
-          className="flex 
-          xl:mr-20    lg:mr-10     md:mr-5 
-          lg:gap-x-10    md:gap-x-5      
+        <div className=" flex lg:gap-x-8    md:gap-x-4">
+          {/* nav options */}
+          <ul
+            className="flex 
+          
+          lg:gap-x-8    md:gap-x-4      
           text-lg font-sans "
-        >
-          <li
-            className={`hover:text-blue-700  font-semibold ${
-              location.pathname === "/" && "border-b-1 border-green-700"
-            }`}
           >
-            <Link to="/" className="flex h-full px-3 py-1  w-full ">
-              Home
-            </Link>
-          </li>
-          <li
-            className={`hover:text-blue-700  font-semibold ${
-              location.pathname.includes("/favorite") &&
-              "border-b-1 border-green-700"
-            }`}
-          >
-            <Link to="/favorite" className="flex h-full px-3 py-1  w-full ">
-              Favorite
-            </Link>
-          </li>
-        </ul>
+            <li
+              className={`hover:text-blue-700  font-semibold ${
+                location.pathname === "/" && "border-b-1 border-green-700"
+              }`}
+            >
+              <Link to="/" className="flex h-full px-3 py-1  w-full ">
+                Home
+              </Link>
+            </li>
+            <li
+              className={`hover:text-blue-700  font-semibold ${
+                location.pathname.includes("/favorite") &&
+                "border-b-1 border-green-700"
+              }`}
+            >
+              <Link to="/favorite" className="flex h-full px-3 py-1  w-full ">
+                Favorite
+              </Link>
+            </li>
+          </ul>
+
+          <div className="xl:mr-8    lg:mr-6     md:mr-2 " title={`Dark Mode `}>
+            <ThemeToggle />
+          </div>
+        </div>
       </div>
 
       {/* mobile view , this will be hidden when screen size(width) > md*/}

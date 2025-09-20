@@ -4,6 +4,7 @@ import NavBar from '../layout/NavBar/NavBar';
 import MainHome from '../pages/Home/MainHome';
 import MainFavorite from '../pages/Faviourite/MainFavorite';
 import Error from '../pages/Error/Error';
+import SkeletonLoading from '../components/SkeletonLoading';
 
 const BrowserRouter = () => {
 
@@ -24,6 +25,12 @@ const BrowserRouter = () => {
     {
       path : "/nav",
       element : <NavBar/>,
+      errorElement : <Error/>
+
+    },
+    {
+      path : "/skeleton",
+      element : <SkeletonLoading/>,
       errorElement : <Error/>
 
     }
