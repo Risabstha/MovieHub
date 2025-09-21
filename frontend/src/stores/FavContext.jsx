@@ -3,6 +3,8 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 export const FavmovieContext = createContext();
 const FavContext = ({ children }) => {
 
+  // const favmovie = () => useContext(FavmovieContext);
+
   // favourite movies store garne
   const [favourites, setFavourites] = useState([]);
 

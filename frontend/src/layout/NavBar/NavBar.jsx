@@ -61,7 +61,7 @@ const NavBar = () => {
             </li>
           </ul>
 
-          <div className="xl:mr-8    lg:mr-6     md:mr-2 " title={`Dark Mode `}>
+          <div className="xl:mr-8    lg:mr-6     md:mr-2 " >
             <ThemeToggle />
           </div>
         </div>
@@ -75,6 +75,9 @@ const NavBar = () => {
             MoviesHub
           </Link>
         </div>
+         <div className="xl:mr-8    lg:mr-6     md:mr-2 " title={`Dark Mode `}>
+            <ThemeToggle />
+          </div>
         <div className="text-xl mr-2" onClick={handleThreeDot}>
           <PiDotsThreeOutlineVerticalFill />
         </div>
@@ -82,11 +85,11 @@ const NavBar = () => {
 
       {/* drop down => hover le kaam garirako dropdowm menu ma!!*/}
       {threeDot && (
-        <div className="absolute top-12 left-0 w-full bg-gray-100 md:hidden ">
+        <div className={`absolute top-12 left-0 w-full  ${theme === "dark" ?"bg-[#1b1b1b]" :"bg-[#dcdada]"} md:hidden `}>
           <ul className="flex flex-col text-lg font-sans w-full ">
             <li
               className={` ${
-                location.pathname === "/" && "bg-gray-200 text-blue-600"
+                location.pathname === "/" && " text-blue-600"
               }`}
             >
               <Link
@@ -100,7 +103,7 @@ const NavBar = () => {
             <li
               className={` ${
                 location.pathname.includes("/favorite") &&
-                "bg-gray-200 text-blue-600"
+                " text-blue-600"
               }`}
             >
               <Link

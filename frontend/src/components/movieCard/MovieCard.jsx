@@ -32,7 +32,7 @@ const MovieCard = ({movieProp}) => {
             type="button"
             className={`absolute  right-3 top-3 cursor-pointer bg-gray-900  p-1 rounded-full
             opacity-0 group-hover:opacity-100 transition-opacity duration-300
-            ${checkFav ? "text-red-400" : "text-white "}`}
+            ${checkFav ? "text-red-500" : "text-white "}`}
             onClick={(e) => handleFaviouriteMovie(e)}
           >
             <FaHeart />

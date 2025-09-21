@@ -8,6 +8,7 @@ const Favorite = () => {
 
     const [searchedMovie, setSearch] = useState('');
     const [movie, setMovie] = useState('');
+
     const handleSearchMovie =(e)=>
     {
        const {value}  = e.target;
@@ -16,7 +17,11 @@ const Favorite = () => {
   
     const handleSubmit = (e) =>{
         e.preventDefault();
+        if(!searchedMovie) return;
+
         setMovie(searchedMovie);
+        
+        setSearch("");
     }
   return (
     <div>

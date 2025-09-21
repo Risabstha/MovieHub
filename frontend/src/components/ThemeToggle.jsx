@@ -9,6 +9,7 @@ const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-full  "
+      title={`Dark Mode ${theme === "dark" ? "On" : "Off"}`}
     >
       {theme === "dark" ? <FaSun className="text-yellow-400 "/> : <FaMoon className="text-gray-900"/>}
     </button>

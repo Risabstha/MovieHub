@@ -96,7 +96,6 @@ const Home = () => {
         </div>
       ) : (
         <div className="flex h-[30vh] justify-center items-center text-2xl ">
-          {" "}
           No movies found
         </div>
       )}

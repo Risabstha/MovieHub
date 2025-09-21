@@ -21,7 +21,7 @@ const SearchBar = ({handleSearchMovie, handleSubmit, searchedMovie}) => {
             placeholder="Search"
             name="search"
             autoComplete="off"
-            value={searchedMovie}
+            value={searchedMovie}     // search bar empty after search
             onChange={handleSearchMovie}
             className="flex-grow px-4 py-2 text-sm md:text-base outline-none"
           />

@@ -28,12 +28,6 @@ const BrowserRouter = () => {
       errorElement : <Error/>
 
     },
-    {
-      path : "/skeleton",
-      element : <SkeletonLoading/>,
-      errorElement : <Error/>
-
-    }
   ])
 
 
