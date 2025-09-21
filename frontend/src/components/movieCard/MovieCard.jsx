@@ -47,7 +47,10 @@ const MovieCard = ({movieProp}) => {
 
         {/* Movie Info */}
         <div className="flex flex-col justify-center px-2 py-1 ">
-          <p className=" text-[14px] font-semibold ">{movieProp.title}</p>
+
+          {/** truncate w-40 le ... show garxa  */}
+          {/* line-clamp-2, tailwind ko plugin ho for truncate after 2nd line ,npm install @tailwindcss/line-clamp*/}
+          <p className=" text-[14px] font-semibold  line-clamp-2 ">{movieProp.title}</p>    
           <p className="text-[13px] text-gray-500">
             {movieProp.release_date?.split("-")[0]}
           </p>{" "}
